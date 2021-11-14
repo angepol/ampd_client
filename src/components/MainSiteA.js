@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from 'axios';
 
 class MainSiteA extends Component {
   render(){
     return (
       <div>
-         <body class="MainSiteA">
+         <div class="MainSiteA">
            <div class="hero-banner" style="background color; backgpround-image: url//">
               <div class="container">
                 <h1>Ampd parking solution</h1>
@@ -18,13 +18,13 @@ class MainSiteA extends Component {
                     <div class="popups">
                       <div class=
                       "find-space-city-selector">
-                        <img alt="vehicle" src"insertillustration" style="max-height: 24px; max-width: 100%">
+                        <img alt="vehicle" src="insertillustration" style="max-height: 24px; max-width: 100%">
                         <h2>Find a space inspect
                           <span> Sydney, Australia</span>
                         </h2>
                     <div class="mainsearch">
                        <div  class="searchbar">
-                        <input aria-label="Where do you want to park?" placeholder="Where do you want to park?" id="place-search-input" type="text">
+                        <input aria-label="Where do you want to park?" placeholder="Where do you want to park?" id="place-search-input" type="text"></input>
                        </div>
 
                     <div class="nearby-space-slide">
@@ -50,7 +50,10 @@ class MainSiteA extends Component {
                 </div>
               </div>
            </div>
-         </body>
+
+         </div>
+         </div>
+         </div>
       </div>
     )
   }
