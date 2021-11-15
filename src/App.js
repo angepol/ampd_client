@@ -1,23 +1,16 @@
 // import './App.css';
 import React from 'react';
-import MainSiteA from './components/MainSiteA'
-import Home from './Home'
-import Header from './Header'
-import Banner from './Banner'
-
-
+import Footer from './components/Footer';
+import FooterStyle from './components/FooterStyle';
+import FindSpace from './components/pages/FindSpace';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
 
-    <div className="app">
-
-<Header />
-
-<Home />
-
+    <div >
+      <Footer />
     </div>
 
 
@@ -26,4 +19,4 @@ function App() {
 
   );
 }
-export default Apps
+export default App;
