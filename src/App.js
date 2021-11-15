@@ -1,9 +1,9 @@
 // import './App.css';
 import React from 'react';
 import MainSiteA from './components/MainSiteA'
-import Home from './Home'
-import Header from './Header'
-import Banner from './Banner'
+import Home from './components/pages/Home'
+import Header from './components/Header'
+import Banner from './components/Banner'
 
 
 
@@ -26,4 +26,4 @@ function App() {
 
   );
 }
-export default Apps
+export default App

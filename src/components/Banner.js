@@ -12,12 +12,14 @@ function Banner() {
           {showSearch && <h1>DATE PICKER</h1>}
 
 
-        <Button onCllick={() => setShowSearch(!showSearch)}
+
+        <Button onCllick={() =>
+          setShowSearch(!showSearch)}
         className='banner_searchButton'
         variant='outlined'>Search Dates</Button>
       </div>
 
-      <div classname='banner_info'>
+      <div className='banner_info'>
         <h2>Find parking space and charging anywhere you go</h2>
 
 
