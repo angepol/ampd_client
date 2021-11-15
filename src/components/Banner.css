@@ -1,0 +1,40 @@
+.banner {
+    /*background: `url('${process.env.PUBLIC_URL}images/lucidcali.jpeg')`;*/
+    height: 400px;
+    position: relative;
+}
+
+.banner_info {
+  background-color: black;
+  color: white;
+  padding-top: 25vh;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 40px;
+  widows: 300px;
+}
+
+.banner_search {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner_searchButton {
+  background-color: white !important;
+  font-weight: 900 !important;
+  text-transform: inherit !important;
+  color: #767676 !important;
+}
+
+.banner_info > button {
+  background-color: #fd8e0a;
+  color: white;
+  text-transform: inherit;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.banner_info > button:hover {
+  margin-top: 10 px;
+
+}
