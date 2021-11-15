@@ -1,6 +1,6 @@
 import React from 'react'
 import './Home.css'
-import Banner from './Banner.js'
+import Banner from '../Banner.js'
 
 function Home() {
   return (
@@ -13,4 +13,4 @@ function Home() {
 
 }
 
-export default Home
+export default Home;
