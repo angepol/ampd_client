@@ -1,6 +1,6 @@
 .banner {
     /*background: `url('${process.env.PUBLIC_URL}images/lucidcali.jpeg')`;*/
-    height: 50vh;
+    height: 400px;
     position: relative;
 }
 

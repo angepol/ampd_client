@@ -6,7 +6,7 @@ function Home() {
   return (
     <div className= 'home'>
       <Banner />
-
+      <p> Hello </p>
 
     </div>
   )
