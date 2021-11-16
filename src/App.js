@@ -51,7 +51,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+
+
         <h2>Welcome {this.state.user.name}</h2>
+
+        <Header />
+        <Home />
 
         <Map />
         <Footer />
