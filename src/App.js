@@ -52,10 +52,16 @@ class App extends Component {
     return (
       <div className="App">
         <h2>Welcome {this.state.user.name}</h2>
-        <Map />
-        <Footer />
+
+        <Header />
+        <Home />
+
+      
+
+
+
       </div>
     );
   }
-
+}
 export default App;
