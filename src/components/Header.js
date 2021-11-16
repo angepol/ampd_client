@@ -14,12 +14,12 @@ function Header() {
       />
 
     <div className='header_center'>
-        <input type="text" />
+        <input type="text" placeholder="Where do you want to park?"/>
         <SearchIcon />
     </div>
 
     <div className='header_right'>
-      <p>List my space</p>
+      <p>Sign Out</p>
       <LanguageIcon />
       <ExpandMoreIcon />
       <Avatar />
