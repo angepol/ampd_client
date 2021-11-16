@@ -20,7 +20,7 @@ function Banner() {
       </div>
 
       <div className='banner_info'>
-        <h2>Find parking space and charging anywhere you go</h2>
+        <h2>Find parking space and charging anywhere you go!</h2>
 
 
           <Button variant='outlined'>Search</Button>
