@@ -59,12 +59,12 @@ class App extends Component {
         <Header />
         <Home />
 
-
-
-
-
+        <Map />
+        <Footer />
+        
       </div>
     );
   }
 }
+
 export default App;
