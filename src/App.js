@@ -53,15 +53,12 @@ class App extends Component {
       <div className="App">
         <h2>Welcome {this.state.user.name}</h2>
 
-        <Header />
-        <Home />
-
-      
-
-
-
+        <Map />
+        <Footer />
+        
       </div>
     );
   }
 }
+
 export default App;
