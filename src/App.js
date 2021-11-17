@@ -7,10 +7,10 @@ import MainSiteA from './components/MainSiteA'
 import Home from './components/pages/Home'
 import Header from './components/Header'
 import Banner from './components/Banner'
-import Map from './components/Map';
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import CenteredContainer from "./componenets/CenteredContainer.style";
+import Map from "./components/Map"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -56,7 +56,8 @@ class App extends Component {
         <Header />
         <Home />
 
-      
+
+
 
 
 

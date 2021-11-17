@@ -4,6 +4,7 @@ import App from "./App";
 import "./index.css";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import FindSpace from "./components/pages/FindSpace";
 
 const rootElement = document.getElementById("root");
 render(
@@ -12,6 +13,7 @@ render(
       <Route path="/" element={<App />} />
       <Route path="signup" element={<SignUp />} />
       <Route path="signin" element={<SignIn />} />
+      <Route path="findaspace" element={<FindSpace />} />
     </Routes>
   </BrowserRouter>,
   rootElement
