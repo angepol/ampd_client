@@ -10,6 +10,7 @@ class FindSpace extends React.Component {
       <div>
         <Header />
         <Map />
+        <Footer />
       </div>
     );
   }
