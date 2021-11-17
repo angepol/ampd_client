@@ -6,7 +6,7 @@ import Footer from '../Footer.js'
 import Banner from '../Banner.js'
 
 class FindSpace extends React.Component {
-  render () {
+  render() {
     return (
       <div>
       <Header />
