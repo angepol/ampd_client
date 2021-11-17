@@ -34,7 +34,7 @@ export default function SignUp() {
       .then((result) => {
         if (result.token) {
           localStorage.setItem("token", result.token);
-          localStorage.setItem("user", result.user);
+          localStorage.setItem("user", JSON.stringify(result.user));
           navigate("/");
         }
       });
