@@ -1,24 +1,17 @@
-import React, { Component } from 'react';
-import Map from '../Map.js'
+import React, { Component } from "react";
+import Map from "../Map.js";
 import "./FindSpaceStyle.js";
-import Header from '../Header.js'
-import Footer from '../Footer.js'
+import Header from "../Header.js";
+import Footer from "../Footer.js";
 
 class FindSpace extends React.Component {
-  render () {
+  render() {
     return (
       <div>
-      <Header />
-       <Map />
-       <Footer />
-
-
-
-
-       </div>
-
-
-    )
+        <Header />
+        <Map />
+      </div>
+    );
   }
 }
 
