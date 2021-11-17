@@ -14,55 +14,22 @@ import Map from "./components/Map"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-class App extends Component {
-  state = {
-    user: {},
-    error: "",
+  class App extends Component {
+    state = {
+      user: {},
+      error: "",
   };
-
-  componentDidMount() {
-    let token = localStorage.getItem("token");
-    if (token) {
-      fetch("http://localhost:4001/profile", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((response) => response.json())
-        .then((result) => {
-          if (result.id) {
-            this.setState({
-              user: result,
-            });
-          }
-        });
-    }
-  }
-
-  // To be called in the NavBar
-  signOut = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-  };
-
-  signingIn = true;
 
   render() {
     return (
       <div className="App">
-        <h2>Welcome {this.state.user.name}</h2>
-
         <Header />
-        <Home />
-
-
-
-
-
-
+        <Home/>
+        <Map />
+        <Footer />
       </div>
     );
   }
 }
+
 export default App;

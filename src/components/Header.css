@@ -13,7 +13,6 @@
   object-fit: contain;
   height: 80px;
   margin-left: 10px;
-
 }
 
 .header_center {
@@ -32,13 +31,12 @@
   padding: 10px;
   outline-width: 0; /* deletes the ugly square outline */
   width: 250px;
-
 }
 
 .header_right {
   display: flex;
   align-items: center;
-  justify-content: space-space-between;
+  justify-content: flex-end;
   width: 15vw;
-  margin-right: 80px;
+  margin-right: 20px;
 }
