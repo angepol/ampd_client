@@ -1,0 +1,22 @@
+.sydney{
+  display: flex;
+  flex-wrap: wrap;
+  color: #fd8e0a;
+
+}
+
+.card {
+  flex-grow: 1;
+  flex-shrink: 2;
+  width: 20%;
+  padding: 50px;
+  border:1px solid #eeeeee;
+  box-shadow: 0 50vh 0 50vh #eeeeee;
+  margin-left: 0.8rem;
+  color: #fd8e0a;
+
+}
+
+.p {
+  text-decoration-color:
+}

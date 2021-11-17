@@ -7,6 +7,7 @@ import { Avatar, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 
+
   function Header() {
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem("user"));
@@ -28,11 +29,12 @@ import { useNavigate } from "react-router";
           src={process.env.PUBLIC_URL + "/images/ampd-logo.png"}
           />
       </Link>
-      
+
       <div className="header_center">
         <input type="text" />
         <SearchIcon />
       </div>
+
       <div className="header_right">
         <div>
           <LanguageIcon />

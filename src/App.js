@@ -23,9 +23,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
   render() {
     return (
       <div className="App">
-        <Header />
+      
         <Home/>
-        <Map />
         <Footer />
       </div>
     );
