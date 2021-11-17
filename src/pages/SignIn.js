@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-
 import Button from "../componenets/Button.style";
 import Card from "../componenets/Card.style";
 import CardContent from "../componenets/CardContent.style";
@@ -33,7 +32,7 @@ export default function SignIn() {
       .then((result) => {
         if (result.token) {
           localStorage.setItem("token", result.token);
-          localStorage.setItem("user", result.user);
+          localStorage.setItem("user", JSON.stringify(result.user));
           navigate("/");
         }
       });

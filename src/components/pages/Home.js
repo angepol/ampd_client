@@ -4,6 +4,7 @@ import Banner from '../Banner.js'
 import Header from '../Header.js'
 import Footer from '../Footer.js'
 import Card from '../Card.js'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 function Home() {
   return (
@@ -33,7 +34,7 @@ function Home() {
       </div>
     </div>
 
-  
+
 
   </div>
 
