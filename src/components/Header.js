@@ -7,6 +7,7 @@ import { Avatar, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 
+
   function Header() {
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem("user"));
@@ -29,15 +30,12 @@ import { useNavigate } from "react-router";
           />
       </Link>
 
+
       <Link to="/findaspace">
       <Button variant='outlined' onClick={"/findaspace"}>Find a Space</Button>
 
       </Link>
-    {/*  <div className="header_center">
-        <input type="text" placeholder="Where do you want to park?"/>
-        <SearchIcon />
-
-      </div> */}
+    
 
       <div className="header_right">
         <div>

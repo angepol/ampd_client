@@ -1,9 +1,11 @@
-import React, { PureComponent } from "react";
-import ReactMapGL, { Marker } from "react-map-gl";
-import Geocoder from "react-mapbox-gl-geocoder";
-import { Container, Col, Row, Button } from "reactstrap";
-import axios from "axios";
+import React, { PureComponent, useState } from 'react';
+import ReactMapGL, { Marker } from 'react-map-gl';
+import Geocoder from 'react-mapbox-gl-geocoder';
+import { Container, Col, Row, Button } from 'reactstrap';
+import axios from 'axios'
 import "./Map.css";
+import SearchIcon from "@material-ui/icons/Search";
+import Input from "../componenets/Input.style";
 
 const SERVER_URL = "http://localhost:4001/parking_spaces.json";
 
@@ -33,7 +35,9 @@ const CustomMarker = ({ index, marker }) => {
   );
 };
 
-class MapView extends PureComponent {
+
+class Map extends PureComponent {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -66,23 +70,15 @@ class MapView extends PureComponent {
     fetchParking();
   }
 
-  saveMarker(markers) {
-    if (!markers) return "";
-    axios.post(SERVER_URL, { parking_space: markers }).then((response) => {
-      // debugger
-      // console.log(response)
-      // this.setState({latitude: [...this.state.latitude, response.data.parking_space.latitude],
-      this.setState({
-        markers: [...this.state.markers, response.data.parking_space],
-      });
-      // longitude: [...this.state.longitude, response.data.parking_space.longitude]})
-      // console.log(response.data.parking_space);
-      // this.setState({})
-    });
-  }
 
-  // on the custom marker component, onClick run saveMarker function.
-  // in the save marker function, post the marker state and setState as latitude and longiude
+saveMarker(markers) {
+  if(!markers) return ""
+  axios.post(SERVER_URL, {parking_space: markers}).then((response) => {
+
+    this.setState({ markers: [...this.state.markers, response.data.parking_space]})
+
+  })
+}
 
   onSelected = (viewport, item) => {
     this.setState({
@@ -96,19 +92,14 @@ class MapView extends PureComponent {
   };
 
   add = () => {
-    const { tempMarker } = this.state;
-    this.saveMarker(this.state.tempMarker);
+    const { tempMarker } = this.state
+    this.saveMarker(this.state.tempMarker)
 
-    this.setState((prevState) => ({
-      // markers: [...prevState.markers, tempMarker],
-      tempMarker: null,
-    }));
-  };
+    this.setState(prevState => ({
 
-  // delete = () => {
-  //   const { tempMarker } = this.state
-  //
-  // }
+        tempMarker: null
+    }))
+  }
 
   render() {
     const { viewport, tempMarker, markers } = this.state;
@@ -149,7 +140,27 @@ class MapView extends PureComponent {
               {...mapStyle}
               onViewportChange={(viewport) => this.setState({ viewport })}
             >
-              {tempMarker && (
+
+            <Row className="py-4">
+              <Col xs={2}>
+                <Geocoder
+                    mapboxApiAccessToken={
+    "pk.eyJ1IjoiYW5nZXBvbCIsImEiOiJja3YzbHg4ZDcwcnM2Mm9xcG51ZG5lOGQzIn0.-ZjAUc6_dljaJQJsW7pcPw"}
+                    onSelected={this.onSelected}
+                    viewport={viewport}
+                    hideOnSelect={true}
+                    value=""
+                    queryParams={params}
+                    placeholder="Where do you want to park?"
+                    className="geocoder-search"
+                />
+
+              </Col>
+              <Col>
+               <Button color="primary" onClick={this.add}>Add</Button>
+              </Col>
+            </Row>
+              { tempMarker &&
                 <Marker
                   longitude={tempMarker.longitude}
                   latitude={tempMarker.latitude}
@@ -158,7 +169,7 @@ class MapView extends PureComponent {
                     <span></span>
                   </div>
                 </Marker>
-              )}
+              }
               {this.state.markers.map((marker, index) => {
                 return (
                   <CustomMarker
@@ -190,4 +201,4 @@ class MapView extends PureComponent {
   }
 }
 
-export default MapView;
+export default Map;

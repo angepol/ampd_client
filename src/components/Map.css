@@ -1,3 +1,4 @@
+
 .marker {
   width:0;
   height:0;
@@ -26,4 +27,19 @@
 
 .temporary-marker span {
   background: red;
+}
+
+.mapSearchbar {
+  color: black;
+
+}
+
+.geocoder-search {
+  padding: 20px;
+  display: block;
+  width: 50%;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 16px;
 }

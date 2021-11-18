@@ -11,9 +11,10 @@ import {
 const Footer = () => {
   return (
     <Box>
-      <h1 style={{ color: "green",
+      <h1 style={{ color: "#fd8e0a",
                    textAlign: "center",
-                   marginTop: "-50px" }}>
+                   marginTop: "-50px",
+                   textSize: "32px" }}>
         Ampd : a global parking company, which helps electronic car drivers find parking spaces.
       </h1>
       <Container>
