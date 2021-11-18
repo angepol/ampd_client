@@ -3,7 +3,7 @@ import ReactMapGL, { Marker } from 'react-map-gl';
 import Geocoder from 'react-mapbox-gl-geocoder';
 import { Container, Col, Row, Button } from 'reactstrap';
 import axios from 'axios'
-import "../index.css";
+import "./Map.css";
 
 
 const SERVER_URL = "http://localhost:4001/parking_spaces.json";
@@ -20,6 +20,7 @@ const params = {
 }
 
 const CustomMarker = ({index, marker}) => {
+  if(!marker)return ""
   console.log(marker, index);
   return (
     <Marker
@@ -69,9 +70,16 @@ class MapView extends PureComponent {
   }
 
 
-saveMarker(latitude,longitude) {
-  axios.post(SERVER_URL, {latitude: latitude, longitude: longitude}).then((resonse) => {
-    this.setState({})
+saveMarker(markers) {
+  if(!markers) return ""
+  axios.post(SERVER_URL, {parking_space: markers}).then((response) => {
+    // debugger
+    // console.log(response)
+    // this.setState({latitude: [...this.state.latitude, response.data.parking_space.latitude],
+    this.setState({ markers: [...this.state.markers, response.data.parking_space]})
+      // longitude: [...this.state.longitude, response.data.parking_space.longitude]})
+    // console.log(response.data.parking_space);
+    // this.setState({})
   })
 }
 
@@ -92,12 +100,21 @@ saveMarker(latitude,longitude) {
 
   add = () => {
     const { tempMarker } = this.state
+    this.saveMarker(this.state.tempMarker)
 
     this.setState(prevState => ({
-        markers: [...prevState.markers, tempMarker],
+        // markers: [...prevState.markers, tempMarker],
         tempMarker: null
     }))
   }
+
+ // delete = () => {
+ //   const { tempMarker } = this.state
+ //
+ // }
+
+
+
 
   render() {
     const { viewport, tempMarker, markers } = this.state;
@@ -162,8 +179,6 @@ saveMarker(latitude,longitude) {
                 </Marker>
               )})
              }
-
-
 
 
             </ReactMapGL>
