@@ -105,30 +105,7 @@ saveMarker(markers) {
     const { viewport, tempMarker, markers } = this.state;
     return (
       <Container fluid={true}>
-        <Row>
-          <Col>
-            <h2>Looking for a charging space?</h2>
-          </Col>
-        </Row>
-        <Row className="py-4">
-          <Col xs={2}>
-            <Geocoder
-              mapboxApiAccessToken={
-                "pk.eyJ1IjoiYW5nZXBvbCIsImEiOiJja3YzbHg4ZDcwcnM2Mm9xcG51ZG5lOGQzIn0.-ZjAUc6_dljaJQJsW7pcPw"
-              }
-              onSelected={this.onSelected}
-              viewport={viewport}
-              hideOnSelect={true}
-              value=""
-              queryParams={params}
-            />
-          </Col>
-          <Col>
-            <Button color="primary" onClick={this.add}>
-              Add
-            </Button>
-          </Col>
-        </Row>
+
         <Row>
           <Col>
             <ReactMapGL

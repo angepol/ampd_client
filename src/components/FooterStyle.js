@@ -2,15 +2,14 @@ import styled from 'styled-components';
 
 export const Box = styled.div`
 padding: 80px 60px;
-background: #767676;
+background: #484848;
 background-size: cover;
 margin-top: 50px;
 
-
 @media (max-width: 1000px) {
 	padding: 70px 30px;
-}
-`;
+`
+
 
 export const Container = styled.div`
 	display: flex;
@@ -41,20 +40,20 @@ grid-gap: 20px;
 `;
 
 export const FooterLink = styled.a`
-color: #fd8e0a;
+color: white;
 margin-bottom: 20px;
 font-size: 18px;
 text-decoration: none;
 
 &:hover {
-	color: #fd8e0a;
+	color: white;
 	transition: 200ms ease-in;
 }
 `;
 
 export const Heading = styled.p`
 font-size: 24px;
-color: #fd8e0a;
+color: white;
 margin-bottom: 40px;
 font-weight: bold;
 `;

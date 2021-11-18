@@ -11,7 +11,7 @@ import {
 const Footer = () => {
   return (
     <Box>
-      <h1 style={{ color: "#fd8e0a",
+      <h1 style={{ color: "white",
                    textAlign: "center",
                    marginTop: "-50px",
                    textSize: "32px" }}>
@@ -64,6 +64,8 @@ const Footer = () => {
                 </FooterLink>
               </Column>
             </Row>
+
+            <p style={{ color: "white", textSize: "15px"}}> ©️ Made by Tracey, Natalia, Angie & Kundai, 2021 </p>
           </Container>
         </Box>
       );
