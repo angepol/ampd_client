@@ -1,7 +1,6 @@
 import { Component } from "react";
 import React from 'react';
 import Footer from './components/Footer';
-import FooterStyle from './components/FooterStyle';
 import FindSpace from './components/pages/FindSpace';
 import MainSiteA from './components/MainSiteA'
 import Home from './components/pages/Home'
@@ -23,7 +22,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
   render() {
     return (
       <div className="App">
-      
+
         <Home/>
         <Footer />
       </div>
