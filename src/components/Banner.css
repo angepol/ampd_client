@@ -1,9 +1,12 @@
 .banner {
   /*  HOW TO MAKE PICTURE STAY SAME WHEN OPEN BROWSER?
-    background: url('/images/lucidcitylarge.jpeg') no-repeat center fixed; */
+    background: url('/images/lucidcitylarge.jpeg') no-repeat center fixed;*/
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     height: 400px;
     position: relative;
+
 }
 
 .banner_info {

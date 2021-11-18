@@ -28,11 +28,17 @@ import { useNavigate } from "react-router";
           src={process.env.PUBLIC_URL + "/images/ampd-logo.png"}
           />
       </Link>
-      
-      <div className="header_center">
-        <input type="text" />
+
+      <Link to="/findaspace">
+      <Button variant='outlined' onClick={"/findaspace"}>Find a Space</Button>
+
+      </Link>
+    {/*  <div className="header_center">
+        <input type="text" placeholder="Where do you want to park?"/>
         <SearchIcon />
-      </div>
+
+      </div> */}
+
       <div className="header_right">
         <div>
           <LanguageIcon />
