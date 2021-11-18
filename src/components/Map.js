@@ -1,8 +1,8 @@
-import React, { PureComponent, useState } from 'react';
-import ReactMapGL, { Marker } from 'react-map-gl';
-import Geocoder from 'react-mapbox-gl-geocoder';
-import { Container, Col, Row, Button } from 'reactstrap';
-import axios from 'axios'
+import React, { PureComponent, useState } from "react";
+import ReactMapGL, { Marker } from "react-map-gl";
+import Geocoder from "react-mapbox-gl-geocoder";
+import { Container, Col, Row, Button } from "reactstrap";
+import axios from "axios";
 import "./Map.css";
 import SearchIcon from "@material-ui/icons/Search";
 import Input from "../componenets/Input.style";
@@ -35,9 +35,7 @@ const CustomMarker = ({ index, marker }) => {
   );
 };
 
-
 class Map extends PureComponent {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -56,29 +54,40 @@ class Map extends PureComponent {
 
   componentDidMount() {
     const fetchParking = () => {
-      axios.get(SERVER_URL).then((response) => {
-        const latPosition = [];
-        const longPosition = [];
-        response.data.map((pos) => {
-          latPosition.push(pos.latitude);
-          longPosition.push(pos.longitude);
-          console.log(pos.latitude, pos.longitude);
-          this.setState({ latitude: latPosition, longitude: longPosition });
+      axios
+        .get(SERVER_URL, {
+          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+        })
+        .then((response) => {
+          const latPosition = [];
+          const longPosition = [];
+          response.data.map((pos) => {
+            latPosition.push(pos.latitude);
+            longPosition.push(pos.longitude);
+            console.log(pos.latitude, pos.longitude);
+            this.setState({ latitude: latPosition, longitude: longPosition });
+          });
         });
-      });
     };
     fetchParking();
   }
 
-
-saveMarker(markers) {
-  if(!markers) return ""
-  axios.post(SERVER_URL, {parking_space: markers}).then((response) => {
-
-    this.setState({ markers: [...this.state.markers, response.data.parking_space]})
-
-  })
-}
+  saveMarker(markers) {
+    if (!markers) return "";
+    axios
+      .post(
+        SERVER_URL,
+        { parking_space: markers },
+        {
+          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+        }
+      )
+      .then((response) => {
+        this.setState({
+          markers: [...this.state.markers, response.data.parking_space],
+        });
+      });
+  }
 
   onSelected = (viewport, item) => {
     this.setState({
@@ -92,14 +101,13 @@ saveMarker(markers) {
   };
 
   add = () => {
-    const { tempMarker } = this.state
-    this.saveMarker(this.state.tempMarker)
+    const { tempMarker } = this.state;
+    this.saveMarker(this.state.tempMarker);
 
-    this.setState(prevState => ({
-
-        tempMarker: null
-    }))
-  }
+    this.setState((prevState) => ({
+      tempMarker: null,
+    }));
+  };
 
   render() {
     const { viewport, tempMarker, markers } = this.state;
@@ -140,12 +148,12 @@ saveMarker(markers) {
               {...mapStyle}
               onViewportChange={(viewport) => this.setState({ viewport })}
             >
-
-            <Row className="py-4">
-              <Col xs={2}>
-                <Geocoder
+              <Row className="py-4">
+                <Col xs={2}>
+                  <Geocoder
                     mapboxApiAccessToken={
-    "pk.eyJ1IjoiYW5nZXBvbCIsImEiOiJja3YzbHg4ZDcwcnM2Mm9xcG51ZG5lOGQzIn0.-ZjAUc6_dljaJQJsW7pcPw"}
+                      "pk.eyJ1IjoiYW5nZXBvbCIsImEiOiJja3YzbHg4ZDcwcnM2Mm9xcG51ZG5lOGQzIn0.-ZjAUc6_dljaJQJsW7pcPw"
+                    }
                     onSelected={this.onSelected}
                     viewport={viewport}
                     hideOnSelect={true}
@@ -153,14 +161,15 @@ saveMarker(markers) {
                     queryParams={params}
                     placeholder="Where do you want to park?"
                     className="geocoder-search"
-                />
-
-              </Col>
-              <Col>
-               <Button color="primary" onClick={this.add}>Add</Button>
-              </Col>
-            </Row>
-              { tempMarker &&
+                  />
+                </Col>
+                <Col>
+                  <Button color="primary" onClick={this.add}>
+                    Add
+                  </Button>
+                </Col>
+              </Row>
+              {tempMarker && (
                 <Marker
                   longitude={tempMarker.longitude}
                   latitude={tempMarker.latitude}
@@ -169,7 +178,7 @@ saveMarker(markers) {
                     <span></span>
                   </div>
                 </Marker>
-              }
+              )}
               {this.state.markers.map((marker, index) => {
                 return (
                   <CustomMarker
