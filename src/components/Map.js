@@ -11,8 +11,8 @@ const mapStyle = {
   height: 600,
 };
 
-// const mapboxApiKey =
-//   "pk.eyJ1IjoiYW5nZXBvbCIsImEiOiJja3YzbHg4ZDcwcnM2Mm9xcG51ZG5lOGQzIn0.-ZjAUc6_dljaJQJsW7pcPw";
+const mapboxApiKey =
+  "pk.eyJ1IjoiYW5nZXBvbCIsImEiOiJja3YzbHg4ZDcwcnM2Mm9xcG51ZG5lOGQzIn0.-ZjAUc6_dljaJQJsW7pcPw";
 
 const params = {
   country: "AU",
@@ -116,9 +116,7 @@ class Map extends PureComponent {
         <Row>
           <Col>
             <ReactMapGL
-              mapboxApiAccessToken={
-                "pk.eyJ1IjoiYW5nZXBvbCIsImEiOiJja3YzbHg4ZDcwcnM2Mm9xcG51ZG5lOGQzIn0.-ZjAUc6_dljaJQJsW7pcPw"
-              }
+              mapboxApiAccessToken={mapboxApiKey}
               mapStyle="mapbox://styles/mapbox/streets-v11"
               {...viewport}
               {...mapStyle}
@@ -127,9 +125,7 @@ class Map extends PureComponent {
               <Row className="py-4">
                 <Col xs={2}>
                   <Geocoder
-                    mapboxApiAccessToken={
-                      "pk.eyJ1IjoiYW5nZXBvbCIsImEiOiJja3YzbHg4ZDcwcnM2Mm9xcG51ZG5lOGQzIn0.-ZjAUc6_dljaJQJsW7pcPw"
-                    }
+                    mapboxApiAccessToken={mapboxApiKey}
                     onSelected={this.onSelected}
                     viewport={viewport}
                     hideOnSelect={true}
