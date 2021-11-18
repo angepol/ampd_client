@@ -6,8 +6,7 @@ import axios from "axios";
 import "./Map.css";
 import SearchIcon from "@material-ui/icons/Search";
 import Input from "../componenets/Input.style";
-
-const SERVER_URL = "http://localhost:4001/parking_spaces.json";
+import { SERVER_URL } from "..";
 
 const mapStyle = {
   width: "100%",
@@ -55,7 +54,7 @@ class Map extends PureComponent {
   componentDidMount() {
     const fetchParking = () => {
       axios
-        .get(SERVER_URL, {
+        .get(`${SERVER_URL}/parking_spaces.json`, {
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
         })
         .then((response) => {
@@ -76,7 +75,7 @@ class Map extends PureComponent {
     if (!markers) return "";
     axios
       .post(
-        SERVER_URL,
+        `${SERVER_URL}/parking_spaces.json`,
         { parking_space: markers },
         {
           headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -102,24 +101,23 @@ class Map extends PureComponent {
 
   add = () => {
     const { tempMarker } = this.state;
-    this.saveMarker(this.state.tempMarker);
+    if (tempMarker) {
+      this.saveMarker(tempMarker);
+    }
 
-    this.setState((prevState) => ({
+    this.setState(() => ({
       tempMarker: null,
     }));
   };
 
   render() {
-    const { viewport, tempMarker, markers } = this.state;
+    const { viewport, tempMarker, markers, latitude, longitude } = this.state;
     return (
       <Container fluid={true}>
-
         <Row>
           <Col>
             <ReactMapGL
-              mapboxApiAccessToken={
-                "pk.eyJ1IjoiYW5nZXBvbCIsImEiOiJja3YzbHg4ZDcwcnM2Mm9xcG51ZG5lOGQzIn0.-ZjAUc6_dljaJQJsW7pcPw"
-              }
+              mapboxApiAccessToken={mapboxApiKey}
               mapStyle="mapbox://styles/mapbox/streets-v11"
               {...viewport}
               {...mapStyle}
@@ -128,9 +126,7 @@ class Map extends PureComponent {
               <Row className="py-4">
                 <Col xs={2}>
                   <Geocoder
-                    mapboxApiAccessToken={
-                      "pk.eyJ1IjoiYW5nZXBvbCIsImEiOiJja3YzbHg4ZDcwcnM2Mm9xcG51ZG5lOGQzIn0.-ZjAUc6_dljaJQJsW7pcPw"
-                    }
+                    mapboxApiAccessToken={mapboxApiKey}
                     onSelected={this.onSelected}
                     viewport={viewport}
                     hideOnSelect={true}
@@ -156,7 +152,7 @@ class Map extends PureComponent {
                   </div>
                 </Marker>
               )}
-              {this.state.markers.map((marker, index) => {
+              {markers.map((marker, index) => {
                 return (
                   <CustomMarker
                     key={`marker-${index}`}
@@ -166,13 +162,10 @@ class Map extends PureComponent {
                 );
               })}
 
-              {this.state.latitude.map((latitude, index) => {
+              {latitude.map((latitude, index) => {
                 console.log(latitude);
                 return (
-                  <Marker
-                    latitude={latitude}
-                    longitude={this.state.longitude[index]}
-                  >
+                  <Marker latitude={latitude} longitude={longitude[index]}>
                     <div className="marker temporary-marker">
                       <span></span>
                     </div>

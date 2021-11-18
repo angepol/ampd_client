@@ -7,34 +7,32 @@ import { Avatar, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 
-
-  function Header() {
-    const navigate = useNavigate();
-    const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user);
-    const signOut = () => {
-
+function Header() {
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user);
+  const signOut = () => {
     console.log("SignOut");
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
-      navigate("/signin");
-    };
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/signin");
+  };
 
-    return (
-      <div className="header">
-        <Link to="/home">
+  return (
+    <div className="header">
+      <Link to="/">
         <img
           className="header_logo"
           alt="logo"
           src={process.env.PUBLIC_URL + "/images/ampd-logo.png"}
-          />
+        />
       </Link>
 
       <Link to="/findaspace">
-      <Button variant='outlined' onClick={"/findaspace"}>Find a Space</Button>
-
+        <Button variant="outlined" onClick={"/findaspace"}>
+          Find a Space
+        </Button>
       </Link>
-
 
       <div className="header_right">
         <div>

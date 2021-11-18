@@ -1,9 +1,7 @@
-.sydney{
+.sydney {
   display: flex;
   flex-wrap: wrap;
   color: #fd8e0a;
-
-
 }
 
 .card {
@@ -11,14 +9,11 @@
   flex-shrink: 2;
   width: 5%;
   padding: 50px;
-  border:1px solid #eeeeee;
-  box-shadow: 0 50vh 0 50vh #eeeeee;
+  border: 1px solid #eeeeee;
   margin-left: 0.8rem;
-  background-color:#fd8e0a;
+  background-color: #fd8e0a;
   color: white;
-
 }
-
 
 .helloSydney {
   color: #fd8e0a;
@@ -27,7 +22,7 @@
 
 .mapdiv {
   display: flex;
-  border: 1px solid ;
+  border: 1px solid;
 }
 
 .mapstuff {
@@ -48,5 +43,4 @@
   border-radius: 25px;
   background-color: #fd8e0a;
   color: white;
-
 }

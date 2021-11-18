@@ -1,4 +1,4 @@
-import { Component, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import Button from "../componenets/Button.style";
 import Card from "../componenets/Card.style";
@@ -8,6 +8,7 @@ import CenteredContainer from "../componenets/CenteredContainer.style";
 import Input from "../componenets/Input.style";
 import Subtitle from "../componenets/Subtitle.style";
 import Link from "../componenets/Link.style";
+import { SERVER_URL } from "..";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ export default function SignUp() {
   const [name, setName] = useState("");
 
   const signUp = (user) => {
-    fetch("http://localhost:4001/users", {
+    fetch(`${SERVER_URL}/users`, {
       method: "POST",
       headers: {
         Accept: "application/json",

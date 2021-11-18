@@ -4,23 +4,19 @@ import App from "./App";
 import "./index.css";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import Home from "./components/pages/Home.js";
-
 import FindSpace from "./components/pages/FindSpace.js";
+
+// this should be an environment variable :P
+export const SERVER_URL = "https://ampd-application.herokuapp.com";
 
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
     <Routes>
-
-
-    <Route path="Home" element={<Home />} />
-
+      <Route path="/" element={<App />} />
       <Route path="findaspace" element={<FindSpace />} />
-
       <Route path="signup" element={<SignUp />} />
       <Route path="signin" element={<SignIn />} />
-      <Route path="/" element={<App />} />
     </Routes>
   </BrowserRouter>,
   rootElement

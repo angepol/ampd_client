@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { SERVER_URL } from "..";
 import Button from "../componenets/Button.style";
 import Card from "../componenets/Card.style";
 import CardContent from "../componenets/CardContent.style";
@@ -15,7 +16,7 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
 
   const signIn = (user) => {
-    fetch("http://localhost:4001/login", {
+    fetch(`${SERVER_URL}/login`, {
       method: "POST",
       headers: {
         Accept: "application/json",
