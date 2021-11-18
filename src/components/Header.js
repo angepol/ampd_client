@@ -30,10 +30,11 @@ import { useNavigate } from "react-router";
           />
       </Link>
 
-      <div className="header_center">
-        <input type="text" />
-        <SearchIcon />
-      </div>
+      <Link to="/findaspace">
+      <Button variant='outlined' onClick={"/findaspace"}>Find a Space</Button>
+
+      </Link>
+    
 
       <div className="header_right">
         <div>
