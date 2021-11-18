@@ -34,7 +34,7 @@ import { useNavigate } from "react-router";
       <Button variant='outlined' onClick={"/findaspace"}>Find a Space</Button>
 
       </Link>
-    
+
 
       <div className="header_right">
         <div>
