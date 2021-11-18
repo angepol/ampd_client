@@ -1,10 +1,9 @@
 import React from "react";
 import "./Home.css";
-import Banner from "../Banner.js";
-import Header from "../Header.js";
-import Footer from "../Footer.js";
-import Card from "../Card.js";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Banner from "../components/Banner";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Card from "../components/Card";
 
 function Home() {
   return (

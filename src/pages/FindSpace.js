@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Map from "../Map.js";
+import Map from "../components/Map";
 import "./FindSpace.css";
-import Header from "../Header.js";
-import Footer from "../Footer.js";
-import Banner from "../Banner.js";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Banner from "../components/Banner";
 import axios from "axios";
-import { SERVER_URL } from "../../index.js";
+import { SERVER_URL } from "../index.js";
 
 class FindSpace extends Component {
   constructor() {
@@ -26,7 +26,8 @@ class FindSpace extends Component {
           const spaces = [];
 
           if (response.data) {
-            response.data.map((parking) => {
+            // changed to forEach because .map expects a return value, forEach just loops over it
+            response.data.forEach((parking) => {
               let thisSpace = {
                 profile_image: parking.profile_image,
                 description: parking.description,

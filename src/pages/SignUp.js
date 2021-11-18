@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import Button from "../componenets/Button.style";
-import Card from "../componenets/Card.style";
-import CardContent from "../componenets/CardContent.style";
-import CardHeader from "../componenets/CardHeader.style";
-import CenteredContainer from "../componenets/CenteredContainer.style";
-import Input from "../componenets/Input.style";
-import Subtitle from "../componenets/Subtitle.style";
-import Link from "../componenets/Link.style";
+import Button from "../components/Button.style";
+import Card from "../components/Card.style";
+import CardContent from "../components/CardContent.style";
+import CardHeader from "../components/CardHeader.style";
+import CenteredContainer from "../components/CenteredContainer.style";
+import Input from "../components/Input.style";
+import Subtitle from "../components/Subtitle.style";
+import Link from "../components/Link.style";
 import { SERVER_URL } from "..";
 
 export default function SignUp() {

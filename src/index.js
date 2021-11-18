@@ -4,7 +4,7 @@ import App from "./App";
 import "./index.css";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import FindSpace from "./components/pages/FindSpace.js";
+import FindSpace from "./pages/FindSpace.js";
 
 // this should be an environment variable :P
 export const SERVER_URL = "https://ampd-application.herokuapp.com";

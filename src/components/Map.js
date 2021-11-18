@@ -1,11 +1,9 @@
-import React, { PureComponent, useState } from "react";
+import React, { PureComponent } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 import Geocoder from "react-mapbox-gl-geocoder";
 import { Container, Col, Row, Button } from "reactstrap";
 import axios from "axios";
 import "./Map.css";
-import SearchIcon from "@material-ui/icons/Search";
-import Input from "../componenets/Input.style";
 import { SERVER_URL } from "..";
 
 const mapStyle = {
@@ -60,7 +58,8 @@ class Map extends PureComponent {
         .then((response) => {
           const latPosition = [];
           const longPosition = [];
-          response.data.map((pos) => {
+          // changed to forEach because .map expects a return value, forEach just loops over it
+          response.data.forEach((pos) => {
             latPosition.push(pos.latitude);
             longPosition.push(pos.longitude);
             console.log(pos.latitude, pos.longitude);
