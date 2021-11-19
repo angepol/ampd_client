@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+<img src=“./public/images/ampd-logo.png” width=“400" height=“200”>
+Ampd is a parking market place for EV. We connect EV drivers looking for parking space with a charging port for their vehicles with hosts that have available car parks and/or driveways in convenient locations across Australia.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### :zap:️DEMO Link
 
-## Available Scripts
+Deployed version
+https://ampd-client.netlify.app/
 
-In the project directory, you can run:
+### :star-struck: Project 2 for General Assembly’s 12 week program - Group project.
 
-### `npm start`
+AMPD is a company that takes climate change seriously, our goal is to create a global community of like minded individuals who love EV’s and want to offer their charging facility or find a place to recharge anywhere they go.
+We are software engineers who are passionate about climate change and electronic vehicles.
+On our site one can find charging stations near you and rent your charging station for public use, create a passive income for yourself.
+`Build status. 1.0`
+This current build allows one to search for current charging stations or add new station and parking space.
+In future builds, we will create a user profile page so that one be be able to create a user account, update it, delete their profile.
+Next we will implement stripe or a similar technology to facilitate financial transactions.
+We will also implement
+We created a data base using postgreSQL. We have used axios to access our DB and show the data.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Creating markers on the map.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+We have use the gem geocoder which allows the client to Look up street addresses, IP addresses, and geographic coordinates.
+`FETCH`
+In order to display the markers, we have taken the seed data within the parameters of our :parking_spaces model, including :parking_spaces_id :latitude and :longitude from
+and fed that to the
+`POST` - create SAVE marker.
+One can also add a marker through the search bar, it initially creates a temp marker. Once the user clicks add, then in our add function, add the tempMarker to our markers array and set tempMarker back to null, this changes the state and the colour of the marker and posts the longitude and latitude of the marker back to the database adding another parking_space.
 
-### `npm test`
+## User Authentication - using JWT between React and Rails
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Implemented via modified instructions from Kevin Glasgow https://levelup.gitconnected.com/react-rails-full-auth-from-scratch-using-jwt-part-i-963c4b83cbe8
 
-### `npm run build`
+### _:warning: Issues_
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- initially there was a problem displaying the pins because of a protected route but this was relaxed so that you don’t need to pass the token into an auth header to view them.
+- also missed the secrets.yml at time of production so the map didn’t display (but pins did ¯\_(ツ)\_/¯ ) some StackOverflow searching found the issue fix for this.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deployment - front-end to Netlify
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Deployment was a dream using Netlify. So easy. Just a matter of working out the bugs (like the missing secrets.yml and the need to add a \_redirects file to /public for navigation). Another great artical that was useful in getting this deployed was from Scott Domes https://scottdomes.com/rails-authentication-deploy/
 
-### `npm run eject`
+### _:warning: Issues_
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- needed to add a \_redirects file to /public for navigation to work with react router more StackOverflow searching found the issue fix for this
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### :smiley_cat: Project on GitHub
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Download or clone the repository:
+`https://github.com/tracey-web/ampd_server`
+`https://github.com/tracey-web/ampd_client`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### About the app
 
-## Learn More
+- To access apps functionality, please register using your credentials.
+- SignIn available with existing users:\
+  `Email: marthajordans@gmail.com`\
+  `PW: chicken`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Pages
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Homepage
+<img src=“./public/images/home1.png” width=“400” height=“200">
+Map
+<img src=“./public/images/findaspace1.png” width=“400" height=“200”>
+Model
+<img src=“./public/images/Models.png” width=“400” height=“200">
 
-### Code Splitting
+### Technologies used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Client Side:**
 
-### Analyzing the Bundle Size
+1. React
+2. JavaScript
+3. CSS
+4. Maretial-UI
+5. Style components
+6. React Router
+   **Server Side:**
+7. Rails
+8. Ruby
+9. JWT- JSON web token
+10. postgreSQL
+11. API (mapbox)
+    react-mapbox-gl-geocoder
+    “react-map-gl”
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### List of contributors:
 
-### Making a Progressive Web App
+[Angie](https://github.com/@angepol) / @angepol: maps and markers using MapBox, seed data, and Heroku deployment
+[Kundai](https://github.com/@Just-Kundai) / @Just-Kundai: parking spaces page, footer, and styling
+[Natalia](https://github.com/@appaluza) / @appaluza: header, style, and home page
+[Tracey](https://github.com/tracey-web) / @tracey-web: user authentication(signin/signup/signout) and Netlify deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### :v: Special Thanks to
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Also a big thanks to Joel, Rowena and Pat for sharing their approaches to solving our bugs and their time.
