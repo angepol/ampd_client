@@ -1,4 +1,5 @@
-<img src=“./public/images/ampd-logo.png” width=“400" height=“200”>
+![Screen Shot 2022-08-03 at 1 42 04 PM](https://user-images.githubusercontent.com/50424620/187046162-68b505f0-91a3-4f8d-8f61-cd3c51137317.png)
+
 Ampd is a parking market place for EV. We connect EV drivers looking for parking space with a charging port for their vehicles with hosts that have available car parks and/or driveways in convenient locations across Australia.
 
 ### :zap:️DEMO Link
